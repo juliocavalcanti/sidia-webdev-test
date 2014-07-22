@@ -1,10 +1,9 @@
 extends layout
 
 block content
-	div.main
-		#chat-content
-		div(class="chat-controls", data-role="footer", data-position="fixed")
-			input#message
+	div(id="chat-content", data-role="footer")
+	div(class="chat-controls", data-role="footer", data-position="fixed")
+		input#message
 	script(type='text/javascript').
 		window.param_sessionId = '!{sessionId}'; window.param_userId = '!{user.id}'; window.param_username = '!{user.name}';
 	script(src='/js/chat.js')

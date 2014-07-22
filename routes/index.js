@@ -3,7 +3,7 @@ var ioclient;
 var socket;
 
 exports.index = function(req, res){
-	res.render('index', { title: title, siteTitle : siteTitle });
+	res.render('index', { title: '', siteTitle : siteTitle });
 };
 
 exports.room = function(req, res){
@@ -41,7 +41,7 @@ exports.rooms = function(req, res){
 	if (method == "GET") { 
 		var user = req.body;
 		if (!user.name) {
-	    	res.render('index', { title: title, siteTitle : siteTitle, msg_feedback: "Para entrar numa sala é preciso digitar um nome de usuário." });
+	    	res.render('index', { title: '', siteTitle : siteTitle, msg_feedback: "Para entrar numa sala é preciso digitar um nome de usuário." });
 	    }else{
 			db.rooms.find(function(error, rooms){
 				if (error || !rooms) {
@@ -55,7 +55,7 @@ exports.rooms = function(req, res){
 	else {
 		var user = req.body;
 	    if (!user.name) {
-	    	res.render('index', { title: title, siteTitle : siteTitle, msg_feedback: "Um nome de usuário não foi digitado." });
+	    	res.render('index', { title: '', siteTitle : siteTitle, msg_feedback: "Um nome de usuário não foi digitado." });
 	    }else{
 	   //  	db.users.findOne({"name" : user.name}, function(error, user){
 				// if (error || !user) {
@@ -69,7 +69,7 @@ exports.rooms = function(req, res){
 		                	console.log("redirect insert... ");
 		                	if(!req.session.sessionId){
 		                		req.session.sessionId = socket.io.engine.id;
-		                		req.session.userId = 0;
+		                		req.session.userId = req.session.sessionId;
 		                	}else{
 		                		req.session.userId = req.session.sessionId;
 		                	}

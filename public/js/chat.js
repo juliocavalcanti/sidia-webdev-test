@@ -4,7 +4,8 @@ $(document).ready(function() {
     var messages = [];
     // var socket = io.connect('http://localhost:80');
     // var socket = io.connect('http://192.168.1.2:80');
-    var socket = io.connect('http://172.20.10.2:80');
+    //var socket = io.connect('http://172.20.10.2:80');
+    var socket = io.connect(window.location.hostname);
     // var socket = io.connect('http://localhost:3700');
     var sessionId = window.param_sessionId;
     var userId = window.param_userId;
@@ -44,7 +45,7 @@ $(document).ready(function() {
 
     function equalHeights (element1, element2) {
         var height;
-        height = element1.outerHeight()-125;
+        height = element1.outerHeight()-150;
         console.log("height elm1");
         console.log(height);
         element2.css('height', height);
@@ -55,12 +56,6 @@ $(document).ready(function() {
         var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
         return text.replace(exp,"<a href='$1'>$1</a>"); 
     }
-
-    equalHeights($('body'), $('#chat-content') );
-    $(window).resize(function() {
-        equalHeights($('body'), $('#chat-content') );
-        $("#chat-content").scrollTop($("#chat-content")[0].scrollHeight); 
-    });
 
     $("#message").keyup(function(e) {
         console.log("tecla apertada");

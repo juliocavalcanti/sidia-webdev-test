@@ -26,10 +26,10 @@ html(lang='pt')
   body
 
     div(data-role="page")
-      div(data-role="header", data-position="fixed")
-        h2= title
+      div(id="header-page", data-role="header", data-position="fixed")
         a(href="/home", data-icon="home", data-iconpos="notext", data-ajax="false", class="ui-btn-left") &nbsp;
         a(href="#", data-icon="user", data-iconpos="notext", data-ajax="false", class="ui-btn-right") &nbsp;
 
       div(data-role="content")
+        h2(id="page-title")= title
         block content
