@@ -6,7 +6,6 @@ var http = require('http')
   , cookieParser = require('cookie-parser')
   , session = require('express-session')
   , methodOverride = require('method-override')
-  , httpProxy = require("http-proxy")
   , app = express();
     routes = require('./routes');
     uuid = require('node-uuid');
