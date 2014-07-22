@@ -49,8 +49,21 @@ ioclient = require('socket.io-client')('http://localhost/');
 io.sockets.on('connection', function (socket) {
 	socket.on('send', function (data) {
 		if(data != null) {
-	       var user = data.userId;
-	        if(user != null) {
+	       var history = new Object();
+	       history.name = data.username;
+	       history.message = data.message;
+	        if(history != null) {
+	        	db.rooms.insert({ history: history },
+		        function(error, history){
+	                if (error) {
+	                	console.log("erro insert: ");
+	                    console.log(error);
+	                } else {
+	               
+	           			console.log(history);
+	                   
+	                }
+		        });
 	            io.sockets.emit('message', data);
 	        } else {
 	            var sysMsg = {type: "error", message: "Usuários não encontrado"};
