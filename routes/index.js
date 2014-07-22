@@ -32,7 +32,7 @@ exports.private = function(req, res){
 
 exports.rooms = function(req, res){
 	ioclient = req.ioclient;
-	socket = ioclient.connect('http://localhost:80');
+	socket = ioclient.connect('http://sidiatestwebchat.herokuapp.com:80');
 	console.log("socket.io: ");
 	console.log(socket.io);
 	console.log("socket.io.engine.id: ");

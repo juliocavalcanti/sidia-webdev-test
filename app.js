@@ -44,7 +44,7 @@ if ('development' == env) {
 server = http.createServer(app).listen(app.get('port'));
 
 io = require('socket.io').listen(server);
-ioclient = require('socket.io-client')('http://localhost:80');
+ioclient = require('socket.io-client')('http://sidiatestwebchat.herokuapp.com:80');
 
 io.sockets.on('connection', function (socket) {
 	socket.on('send', function (data) {
