@@ -19,6 +19,14 @@ body {
   color: @primary-color;
   background:#dedede
 }
+#header-page{
+	background: #1285cc url(../images/bg-header.png) no-repeat center center;
+	height: 45px;
+}
+h2#page-title{
+	font-size: 1.2em;
+	margin: 0.33em 0;
+}
 #msg-feedback{
 	display: block;
 	float: left;
@@ -36,23 +44,39 @@ body {
 .ui-content {
 	padding: 0.3em;
 }
-.ui-field-contain{
-	border-color: #E6E6E6;
+.ui-field-contain,
+.ui-input-search{
+	border-color: #E6E6E6!important;
 }
 #chat-content{
+	position: fixed;
+	bottom: 43px;
 	width: 100%; 
 	height: auto; 
 	margin: 0 0 10px 0; 
 	overflow-y: scroll;
 	text-align: left;
+	border: none;
+	border-color: transparent!important;
+	background: #f9f9f9!important;
+	padding: 10px 5px 5px 5px;
+	box-sizing: border-box;
+	z-index: 1 !important;
 	.message{
 		float: left; 
 		width: 80%;
 		clear: both;
-		background-color: #eee;
+		background-color: #fff;
 		margin-bottom: 10px;
 		box-sizing: border-box;
 		padding: 5px;
+		color: #777;
+		word-wrap: break-word;
+		font-size: 14px;
+		font-weight: normal;
+		b{
+			color: #2c3e50;
+		}
 		.border-radius (@radius: 3px);
 		&.me{
 			float: right;
@@ -68,6 +92,7 @@ body {
 	background: #ddd!important;
 	padding: 0px 5px;
 	box-sizing: border-box;
+	z-index: 10px;
 	#message{
 		width: 100%;
 		border: 1px solid #aaa!important;
