@@ -44,7 +44,7 @@ if ('development' == env) {
 //Config Conexão
 server = http.createServer(app).listen(app.get('port'));
 io = require('socket.io').listen(server);
-ioclient = require('socket.io-client')('http://localhost:80');
+ioclient = require('socket.io-client')(window.location.hostname);
 //var io = require('socket.io').listen(app.listen(port));
 
 io.sockets.on('connection', function (socket) {
