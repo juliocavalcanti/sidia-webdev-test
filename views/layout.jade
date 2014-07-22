@@ -1,0 +1,35 @@
+doctype html
+html(lang='pt')
+  head
+    //Mobile
+    meta(charset='UTF-8')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+    title= siteTitle
+    //CSS
+    block css
+      link(rel='stylesheet', href='/css/normalize.css')
+      link(rel='stylesheet', href='/css/jquery.mobile.flatui.min.css')
+      link(rel='stylesheet', href='/css/style.css')
+    //JS
+    block js
+      script(src='/js/jquery.min.js')
+      script(src='/js/jquery.mobile.min.js')
+      script(src='/socket.io/socket.io.js')
+      script(type='text/javascript').
+        var window.param_sessionId = '';
+        var window.param_userId = '';
+        var window.param_username = '';
+    block favicon
+      link(rel='shortcut icon', href='/images/favicon.ico')
+  body
+
+    div(data-role="page")
+      div(data-role="header", data-position="fixed")
+        h2= title
+        a(href="/home", data-icon="home", data-iconpos="notext", data-ajax="false", class="ui-btn-left") &nbsp;
+        a(href="#", data-icon="user", data-iconpos="notext", data-ajax="false", class="ui-btn-right") &nbsp;
+
+      div(data-role="content")
+        block content

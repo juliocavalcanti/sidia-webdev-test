@@ -1,0 +1,9 @@
+extends layout
+block content
+	ul#rooms(data-role="listview",data-filter="true",data-filter-placeholder="Buscar",data-inset="true")
+		- each room in rooms
+			li(id=room.slug)
+				a(href="/room/#{room.slug}")
+					h3= room.name
+	- var msg_fdbck = msg_feedback
+	div(id="msg-feedback", style=msg_fdbck?'display:block;':'display:none;', data-theme="d")= msg_fdbck?msg_fdbck:''

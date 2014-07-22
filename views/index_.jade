@@ -1,0 +1,84 @@
+extends layout
+
+block body
+	div(data-role="page", id="home")
+		div(data-role="header", data-position="fixed")
+			h2= title
+		div(data-role="content")
+			p Entre com o nome de usuário.
+			ul(data-role="listview", data-inset="true")
+				li(data-role="fieldcontain")
+					label(for="userName") Nome:
+					input(id="userName", name="userName", type="text", maxlenght="150")
+			input(id="saveUser", type="button", value="Enviar", data-icon="check", data-inline="true")
+	div(data-role="page", id="rooms")
+		div(data-role="panel", id="users-list-panel", data-position="right", data-display="push")
+			ul(class="users-list", data-role="listview",data-filter="true",data-filter-placeholder="Buscar", data-inset="true")
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+		div(data-role="header", data-position="fixed")
+			h2= title
+			a(href="#home", data-icon="home", data-iconpos="notext", data-ajax="false", class="ui-btn-left") &nbsp;
+			a(href="#", data-icon="user", data-iconpos="notext", data-ajax="false", class="ui-btn-right") &nbsp;
+		div(data-role="content")
+			ul#rooms(data-role="listview",data-filter="true",data-filter-placeholder="Buscar", data-inset="true")
+				li(id="roomid")
+					a(href="/#room")
+						h3 SIDIA ­ WEBDEV
+	div(data-role="page", id="room")
+		div(data-role="panel", id="users-list-panel", data-position="right", data-display="push")
+			ul(class="users-list", data-role="listview",data-filter="true",data-filter-placeholder="Buscar", data-inset="true")
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+		div(data-role="header", data-position="fixed")
+			h2= title
+			a(href="#rooms", data-icon="bars", data-role="button", class="ui-btn-left") Salas
+			a(href="#", data-icon="user", data-iconpos="notext", data-ajax="false", class="ui-btn-right") &nbsp;
+		div(data-role="content")
+			div#chat-room-content
+			div(class="chat-controls", data-role="footer", data-position="fixed")
+				input#message-room
+			script(src='/js/chat.js')
+	div(data-role="page", id="private")
+		div(data-role="panel", id="users-list-panel", data-position="right", data-display="push")
+			ul(class="users-list", data-role="listview",data-filter="true",data-filter-placeholder="Buscar", data-inset="true")
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+				li(id="user.slug")
+					a(href="/private/#user")
+						h3 usuário
+		div(data-role="header", data-position="fixed")
+			h2= title
+			a(href="#rooms", data-icon="bars", data-role="button", class="ui-btn-left") Salas
+			a(href="#", data-icon="user", data-iconpos="notext", data-ajax="false", class="ui-btn-right") &nbsp;
+		div(data-role="content")
+			div#chat-private-content
+			div(class="chat-controls", data-role="footer", data-position="fixed")
+				input#message-private

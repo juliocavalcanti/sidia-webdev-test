@@ -1,0 +1,42 @@
+{
+  "name": "SidiaTestWebChat",
+  "version": "0.0.1",
+  "description": "Webchat in Realtime",
+  "author": "Julio Cavalcanti",
+  "homepage": "https://github.com/juliocavalcanti/sidia-webdev-test",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juliocavalcanti/sidia-webdev-test"
+  },
+  "bugs": {
+    "url": "https://github.com/juliocavalcanti/sidia-webdev-test/issues"
+  },
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "*",
+    "coffee-script": "*",
+    "errorhandler": "*",
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "method-override": "*",
+    "jade": "*",
+    "mongodb": "*",
+    "mongojs": "*",
+    "morgan": "*",
+    "express-session": "*",
+    "node-uuid": "*",
+    "socket.io": "*",
+    "socket.io-client": "*"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-develop": "latest",
+    "load-grunt-tasks": "latest",
+    "request": "latest",
+    "time-grunt": "latest"
+  }
+}

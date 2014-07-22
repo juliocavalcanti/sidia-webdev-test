@@ -1,0 +1,1 @@
+c:\mongodb\bin\mongod.exe --dbpath "C:\Users\Admin\Google Drive\WebProjects\htdocs\sidia-webdev-test\data"

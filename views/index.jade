@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.main
+    div#home
+        form(method="post", data-ajax="false", action="/rooms")
+            ul(data-role="listview", data-inset="true")
+                li(data-role="fieldcontain")
+                    label(for="name") Nome:
+                    input(id="name", name="name", type="text", maxlenght="150")
+                    - var msg_fdbck = msg_feedback
+                    div(id="msg-feedback", style=msg_fdbck?'display:block;':'display:none;', data-theme="d")= msg_fdbck?msg_fdbck:''
+            input(id="saveUser", type="submit", value="Enviar", data-icon="check", data-inline="true")

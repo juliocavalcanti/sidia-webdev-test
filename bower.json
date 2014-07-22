@@ -1,0 +1,23 @@
+{
+  "name": "SidiaTestWebChat",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "description": "Webchat in Realtime",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Julio Cavalcanti"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/juliocavalcanti/sidia-webdev-test",
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
+}
