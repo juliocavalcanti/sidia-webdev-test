@@ -5,7 +5,7 @@ $(document).ready(function() {
     // var socket = io.connect('http://localhost:80');
     // var socket = io.connect('http://192.168.1.2:80');
     //var socket = io.connect('http://172.20.10.2:80');
-    var socket = io.connect(window.location.hostname);
+    var socket = io.connect('http://localhost:80');
     // var socket = io.connect('http://localhost:3700');
     var sessionId = window.param_sessionId;
     var userId = window.param_userId;

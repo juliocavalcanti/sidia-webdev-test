@@ -6,6 +6,7 @@ var http = require('http')
   , cookieParser = require('cookie-parser')
   , session = require('express-session')
   , methodOverride = require('method-override')
+  , httpProxy = require("http-proxy")
   , app = express();
     routes = require('./routes');
     uuid = require('node-uuid');
@@ -16,7 +17,7 @@ var databaseUrl = "webchat"
 	db = require("mongojs").connect(databaseUrl, collections);
 	siteTitle = "Webchat - SidiaDev";
 	sessionStore = new session.MemoryStore;
-	host = 'http://172.20.10.2:80';
+	host = 'http://localhost:80';
 
   
 //Config App
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser('sidiawebdev-test'));
 app.use(session({ store: sessionStore, secret: 'sidiawebdev-test', saveUninitialized: true, resave: true, genid: function(req) { return uuid.v1(); }}));
 
+
 //Config Debug
 var env = process.env.NODE_ENV || 'development';
 if ('development' == env) {
@@ -43,8 +45,9 @@ if ('development' == env) {
 
 //Config Conexão
 server = http.createServer(app).listen(app.get('port'));
+
 io = require('socket.io').listen(server);
-ioclient = require('socket.io-client')(window.location.hostname);
+ioclient = require('socket.io-client')(host);
 //var io = require('socket.io').listen(app.listen(port));
 
 io.sockets.on('connection', function (socket) {
@@ -78,6 +81,8 @@ router.use(function(req, res, next) {
 });
 app.use(function(req, res, next) {
     req.ioclient = ioclient;
+    console.log('req: ');
+    console.log(req);
     return next();
 });
 
