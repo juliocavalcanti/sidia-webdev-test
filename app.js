@@ -16,8 +16,6 @@ var databaseUrl = "webchat"
 	db = require("mongojs").connect(databaseUrl, collections);
 	siteTitle = "Webchat - SidiaDev";
 	sessionStore = new session.MemoryStore;
-	host = 'http://localhost:80';
-
   
 //Config App
 app.set('port', process.env.PORT || 80);
@@ -46,17 +44,10 @@ if ('development' == env) {
 server = http.createServer(app).listen(app.get('port'));
 
 io = require('socket.io').listen(server);
-ioclient = require('socket.io-client')(host);
-//var io = require('socket.io').listen(app.listen(port));
+ioclient = require('socket.io-client')('http://localhost:80');
 
 io.sockets.on('connection', function (socket) {
 	socket.on('send', function (data) {
-		// console.log("data: ");
-		// console.log(data);
-		console.log("socket: ");
-		console.log(socket);
-		//console.log("session: ");
-		//console.log(sessionStore);
 		if(data != null) {
 	       var user = data.userId;
 	        if(user != null) {
@@ -80,8 +71,6 @@ router.use(function(req, res, next) {
 });
 app.use(function(req, res, next) {
     req.ioclient = ioclient;
-    console.log('req: ');
-    console.log(req);
     return next();
 });
 

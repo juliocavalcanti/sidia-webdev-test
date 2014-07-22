@@ -2,11 +2,7 @@
 $(document).ready(function() {
     console.log("chat started");
     var messages = [];
-    // var socket = io.connect('http://localhost:80');
-    // var socket = io.connect('http://192.168.1.2:80');
-    //var socket = io.connect('http://172.20.10.2:80');
     var socket = io.connect('http://localhost:80');
-    // var socket = io.connect('http://localhost:3700');
     var sessionId = window.param_sessionId;
     var userId = window.param_userId;
     var username = window.param_username;
@@ -14,7 +10,6 @@ $(document).ready(function() {
     var content = document.getElementById("chat-content");
 
     socket.on('message', function (data) {
-        console.log(data);
         if(data.message) {
             messages.push(data);
             var html = '';
