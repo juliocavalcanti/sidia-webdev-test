@@ -44,7 +44,7 @@ if ('development' == env) {
 server = http.createServer(app).listen(app.get('port'));
 
 io = require('socket.io').listen(server);
-ioclient = require('socket.io-client')('http://sidiatestwebchat.herokuapp.com:80');
+ioclient = require('socket.io-client')('http://sidiatestwebchat.herokuapp.com/');
 
 io.sockets.on('connection', function (socket) {
 	socket.on('send', function (data) {
@@ -59,7 +59,7 @@ io.sockets.on('connection', function (socket) {
 	    }
 	});
 	socket.on('disconnect', function() {
-	    //sessionMgm.remove(socket.id);
+
 	});
 });
 
@@ -76,8 +76,8 @@ app.use(function(req, res, next) {
 
 router.get("/", routes.index);
 router.get("/home", routes.index);
-router.get("/room/:slug", routes.room);
 router.all("/rooms", routes.rooms);
+router.get("/room/:slug", routes.room);
 router.get("/private/:id", routes.private);
 app.use('/', router);
 

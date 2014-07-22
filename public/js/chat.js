@@ -2,7 +2,7 @@
 $(document).ready(function() {
     console.log("chat started");
     var messages = [];
-    var socket = io.connect('http://sidiatestwebchat.herokuapp.com:80');
+    var socket = io.connect('http://sidiatestwebchat.herokuapp.com/');
     var sessionId = window.param_sessionId;
     var userId = window.param_userId;
     var username = window.param_username;
